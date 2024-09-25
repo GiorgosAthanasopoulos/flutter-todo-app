@@ -55,8 +55,50 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Set<String> todos = {};
-  List<bool> completed = [];
+  Set<String> todos = {
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20"
+  };
+  List<bool> completed = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
 
   final todoTitleController = TextEditingController();
 
@@ -124,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
     }
-    return Expanded(child: Column(children: todoWidgets));
+    return Expanded(child: ListView(children: todoWidgets));
   }
 
   @override
@@ -165,14 +207,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             renderTodos(),
+            ElevatedButton(
+                onPressed: showAddTodoDialog, child: const Text('Add Todo')),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: showAddTodoDialog,
-        tooltip: 'Add Todo',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
